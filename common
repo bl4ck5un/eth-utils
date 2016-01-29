@@ -1,0 +1,1 @@
+geth attach ipc:/home/ubuntu/chain0/data/00/geth.ipc

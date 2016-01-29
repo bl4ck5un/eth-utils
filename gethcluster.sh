@@ -8,7 +8,8 @@ EOF
     echo "Usage"
     exit 0;
 }
-GETH=../go-ethereum/build/bin/geth
+
+GETH=geth
 
 root=$1
 shift

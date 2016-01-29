@@ -11,7 +11,7 @@ shift
 # logs are output to a date-tagged file for each run , while a link is
 # created to the latest, so that monitoring be easier with the same filename
 # TODO: use this if GETH not set
-GETH=../go-ethereum/build/bin/geth
+GETH=geth
 
 # geth CLI params       e.g., (dd=04, run=09)
 datetag=`date "+%c%y%m%d-%H%M%S"|cut -d ' ' -f 5`
@@ -55,6 +55,7 @@ $GETH --datadir=$datadir \
   --port=$port \
   --password=<(echo -n $dd) \
   --rpc \
+  --rpcaddr=172.31.59.11 \
   --rpcport=$rpcport \
   --rpccorsdomain='*' $* \
   2>&1 | tee "$stablelog" > "$log" &  
