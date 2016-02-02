@@ -2,12 +2,12 @@ var Tx = require('ethereumjs-tx')
 var privateKey = new Buffer('cd244b3015703ddf545595da06ada5516628c5feadbf49dc66049c4b370cc5d8', 'hex')
 
 var rawTx = {
-  nonce: '0x00',
-  gasPrice: '0x09184e72a000', 
-  gasLimit: '0x2710',
-  to: '0x0000000000000000000000000000000000000000', 
-  value: '0x00', 
-  data: '0x7f7465737432000000000000000000000000000000000000000000000000000000600057'
+  nonce: 10,
+  gasPrice: 50000000000, 
+  gasLimit: 90000,
+  to: "0xb7e13de69228c37cdff506ea474f31343af33c05",
+  value: 2000000,  
+  data: ""
 }
 
 var tx = new Tx(rawTx)
@@ -16,5 +16,8 @@ var serializedTx = tx.serialize()
 var pk = tx.getSenderPublicKey()
 var addr = tx.getSenderAddress()
 
-console.log(addr)
+console.log("Addr: " + addr.toString('hex'))
+console.log("TX: " + serializedTx.toString('hex'))
+console.log("Hash: " + tx.hash().toString("hex"))
+console.log("Velidate: ", tx.verifySignature())
 
