@@ -1,7 +1,7 @@
 var Tx = require('ethereumjs-tx');
 
 var rawTx = {
-  nonce: '0x00',
+  nonce: '0x03',
   gasPrice: '0x09184e72a000', 
   gasLimit: '0x2710',
   to: '0x0000000000000000000000000000000000000000', 

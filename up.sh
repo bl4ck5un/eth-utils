@@ -3,7 +3,7 @@
 datadir=$HOME/chain0/data/00
 mkdir -p $datadir
 
-read -p "Do you need a new account?" yn
+read -p "Do you need a new account? [y/N] " yn
 case $yn in
 	[Yy]*) geth --datadir $datadir account new;; 
 	*    ) echo "no account created";;
