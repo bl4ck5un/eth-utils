@@ -31,8 +31,7 @@ function purchase(contract, steamId, delay) {
   miner.start(1); admin.sleepBlocks(1); miner.stop(1);
 }
 
-tc = TownCrier.new({from: minerAddr, data: contracts.TownCrier.code, gas: gasCnt}, function(e, c) {if (!e && c.address) {console.log(c.address)} else {console.log(e)}})
-miner.start(1); admin.sleepBlocks(1); miner.stop(1);
+var tc = setup_tc();
 
 var tradeContract = createSteamTrade(encryptedApiKey, 'Portal', 1e+18);
 
