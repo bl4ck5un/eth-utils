@@ -11,16 +11,13 @@ esac
 
 geth --datadir=$datadir removedb
 
-coinbase=$(geth --datadir $datadir account list |\
-	head -n1 |\
-	perl -ne '/([a-f0-9]{40})/ && print $1')
+
+coinbase=$(geth --datadir=$datadir account list | head -n 1 | sed 's/.*{\([a-z0-9]*\)}.*/\1/g') 
 
 localip=10.0.2.15
 
 geth --datadir=$datadir \
   --identity="00" \
-  --password <(echo zhan9f) \
-  --unlock 0 \
   --networkid="93819023" \
   --etherbase="$coinbase" \
   --port=30000 \
