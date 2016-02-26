@@ -28,8 +28,8 @@ function createSteamTrade(apiKey, item, price) {
 }
 
 function purchase(contract, steamId, delay) {
-  var timeoutSecs = Math.floor((new Date((new Date()).getTime() + (delay * 1000))).getTime() / 1000);
-  contract.purchase.sendTransaction(steamId, timeoutSecs, {from: buyerAddr, value: 1e+18 + (55 * 5e+13), gas: gasCnt})
+  // var timeoutSecs = Math.floor((new Date((new Date()).getTime() + (delay * 1000))).getTime() / 1000);
+  contract.purchase.sendTransaction(steamId, delay, {from: buyerAddr, value: 1e+18 + (55 * 5e+13), gas: gasCnt})
   miner.start(1); admin.sleepBlocks(1); miner.stop(1);
 }
 
