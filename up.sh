@@ -6,7 +6,7 @@ mkdir -p $datadir
 read -p "Do you need a new account? [y/N] " yn
 case $yn in
 	[Yy]*) geth --datadir $datadir account new;; 
-	*    ) echo "no account created";;
+	*    ) echo "No account created";;
 esac
 
 geth --datadir=$datadir removedb
